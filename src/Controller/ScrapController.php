@@ -16,11 +16,12 @@ class ScrapController extends AbstractController
      #[Route('/scrap', name: 'app_scrap')]
     public function index(ScrapService $scrapservice): Response
     {
-        $msg = $scrapservice->getInfo();
-      
+        $title = $scrapservice->getTitle();
+        $body  = $scrapservice->getBody();
         
         return $this->render('scrap/index.html.twig', [
-            'controller_name' =>  $msg,
+            'title' =>  $title,
+            'body' => $body
         ]);
     }
 }
