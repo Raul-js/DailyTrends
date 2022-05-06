@@ -5,7 +5,7 @@
     class ScrapService 
     {
         
-        function getTitle()
+        function getTitleElPais()
         {
           
             $html = file_get_html('https://elpais.com/');
@@ -17,13 +17,28 @@
       
         }
 
-        function getBody()
+        function getBodyElPais()
         {
           
             $html = file_get_html('https://elpais.com/');
             foreach($html->find('p') as $body) {
                 
+                
                 return $body->plaintext;
+              
+            }
+      
+        }
+       
+
+        function getBodyElMundo()
+        {
+          
+            $html = file_get_html('https://www.superdeporte.es/');
+            foreach($html->find('header') as $bodyElMundo) {
+                
+                
+                return $bodyElMundo->plaintext;
               
             }
       
